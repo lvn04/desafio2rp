@@ -14,4 +14,6 @@ Após a ingestão faço um commit dos dados para o repositório criado para o de
 Conforme solicitado, separei prescriptions de prescribers na camada silver e fiz um DF para cada. Não fiz a ingestão do último mês disponível na api (10/2022) pois foi o que eu entendi da documentação, mas caso seja necessário é so rodar o processo que o mês de Outubro será incluso. 
 O schedule do processo está na pasta Airflow onde está presente um script com a orquestração dos jobs.
 As resposta(DataFrames) das questões que foram feitas estão no código da camada  gold, onde usei SQL para retornar os resultados.
+
+A orderm de execução dos scripts é BRONZE_INGESTÃO >> SILVER_PRESCRIPTIONS >> SILVER_PRESCRIBERS GOLD(DATAFRAMES SOLICITADOS), conforme nomenclatura dos links.
   

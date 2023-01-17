@@ -18,9 +18,9 @@ data_parametro = ano + mes
 # Definindo DAG
 
 dag = DAG(
-    dag_id="prova",
+    dag_id="desafio",
     start_date=datetime(2023, 1, 17),
-    # rodar uma ver por dia a 00:30
+    # rodar uma ver por mes 00h
     schedule_interval="0 0 1 * *",
     catchup=False,
     dagrun_timeout=timedelta(minutes=60),
@@ -47,7 +47,7 @@ task_ingestion_bronze = BashOperator(
 
 
 task_prescribers_silver = BashOperator(
-    task_id="backup_bronze",
+    task_id="prescribers_silver",
     bash_command=f"spark-submit {silver}prescribers.sh",
     # Pass the parameter date to the script
     env={"date_parameter": data_parametro},
@@ -55,7 +55,7 @@ task_prescribers_silver = BashOperator(
 )
 
 task_prescriptions_silver = BashOperator(
-    task_id="backup_bronze",
+    task_id="prescriptions_silver",
     bash_command=f"spark-submit {silver}prescriptions.sh",
     # Pass the parameter date to the script
     env={"date_parameter": data_parametro},
@@ -64,7 +64,7 @@ task_prescriptions_silver = BashOperator(
 
 
 task_prescriptions_prescribers_gold = BashOperator(
-    task_id="aerodromos_bronze",
+    task_id="prescriptions_prescribers_gold",
     bash_command=f"spark-submit {gold}prescriptions_prescribers.sh",
     # Pass the parameter date to the script
     env={"date_parameter": data_parametro},

@@ -20,7 +20,7 @@ data_parametro = ano + mes
 dag = DAG(
     dag_id="desafio",
     start_date=datetime(2023, 1, 17),
-    # rodar uma ver por dia a 00:30
+    # rodar uma ver por mes 00h
     schedule_interval="0 0 1 * *",
     catchup=False,
     dagrun_timeout=timedelta(minutes=60),

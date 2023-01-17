@@ -16,4 +16,5 @@ O schedule do processo está na pasta Airflow onde está presente um script com 
 As resposta(DataFrames) das questões que foram feitas estão no código da camada  gold, onde usei SQL para retornar os resultados.
 
 A orderm de execução dos scripts é BRONZE_INGESTÃO >> SILVER_PRESCRIPTIONS >> SILVER_PRESCRIBERS GOLD(DATAFRAMES SOLICITADOS), conforme nomenclatura dos links.
+
   
